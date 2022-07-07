@@ -1,0 +1,355 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #333;
+}
+
+$main: rgb(245, 138, 16);
+$secondary: rgb(245, 239, 239);
+
+.wrapper {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+.stopwatch {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1em;
+	padding: 0.25em;
+	background-image: linear-gradient(#353434 0%, black 100%);
+	border: 1px solid $main;
+	border-radius: 1em;
+
+	&__main-buttons {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin: 0.2em;
+		width: 100%;
+	}
+
+	&__main-btn {
+		padding: 0.75em 1.5em;
+		min-width: 55px;
+		font-size: 1.4rem;
+		border: none;
+		background: none;
+		color: $secondary;
+		cursor: pointer;
+		transition: color 0.3s;
+
+		&:nth-child(1) {
+			margin-right: 0.25em;
+		}
+
+		&:hover {
+			color: $main;
+		}
+	}
+
+	&__heading {
+		padding-top: 2.4em;
+		font-size: 2.2rem;
+		text-transform: uppercase;
+		color: $secondary;
+	}
+
+	&__timer {
+		padding: 1.4em 0;
+		font-size: 2.8rem;
+		color: $main;
+	}
+
+	&__lap {
+		font-size: 1.8rem;
+		color: $secondary;
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: space-between;
+		align-content: space-between;
+		flex-wrap: wrap;
+		padding: 2.5em 0;
+	}
+
+	&__btn {
+		padding: 1em 2em;
+		color: $secondary;
+		background: none;
+		border: none;
+		transition: color 0.3s;
+		font-size: 1.4rem;
+		cursor: pointer;
+
+		&:last-child {
+			width: 100%;
+			margin: 1em 1.5em;
+			font-size: 2rem;
+			text-transform: uppercase;
+			border: 1px solid $secondary;
+			border-radius: 1em;
+		}
+
+		&:hover {
+			color: $main;
+		}
+	}
+
+	&__times {
+		list-style: none;
+
+		&-item {
+			color: $secondary;
+			font-size: 1.6rem;
+			margin: 0 0 0.25em;
+
+			&:last-child {
+				margin-bottom: 1em;
+			}
+		}
+	}
+}
+
+.shadow {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.65);
+
+	&--is-active{
+		display: block;
+	}
+}
+
+.stopwatch-info {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	top: 50%;
+	left: 50%;
+	padding: 2em 0.25em;
+	transform: translate(-50%, -50%);
+	background-color: rgb(255, 255, 255);
+	border-radius: 0.5em;
+
+	&__instruction {
+		list-style: none;
+		&-item {
+			font-size: 1.4rem;
+			padding-bottom: 1em;
+			margin-left: 1em;
+		}
+	}
+
+	&__span {
+		color: $main;
+	}
+
+	&__btn {
+		margin-top: 1em;
+		padding: 0.5em 1em;
+		font-size: 1.6em;
+		font-weight: bold;
+		text-transform: uppercase;
+		background-color: transparent;
+		border: 1px solid $main;
+		border-radius: 0.5em;
+		transform: color .3s background-color .3s;
+
+		&:hover{
+			color: $secondary;
+			background-color: $main;
+		}
+	}
+}
+
+@media (min-width: 556px) {
+	.stopwatch {
+		margin: 5em;
+	}
+}
+@media (min-width: 768px) {
+	.stopwatch {
+		padding: 0.25em;
+
+		&__main-buttons {
+			margin: 0.25em;
+		}
+
+		&__main-btn {
+			padding: 1em 2em;
+			font-size: 1.6rem;
+
+			&:nth-child(1) {
+				margin-right: 0.1em;
+			}
+		}
+
+		&__heading {
+			padding-top: 2.8em;
+			font-size: 2.6rem;
+		}
+
+		&__timer {
+			padding: 2em 0;
+			font-size: 3.2rem;
+		}
+
+		&__lap {
+			font-size: 2.2rem;
+		}
+
+		&__buttons {
+			justify-content: space-around;
+			padding: 5.5em 0;
+		}
+
+		&__btn {
+			padding: 1.25em 2.25em;
+			font-size: 2rem;
+
+			&:last-child {
+				margin: 2em 6em;
+			}
+		}
+
+		&__times {
+			&-item {
+				font-size: 1.8rem;
+				margin: 0 0 0.2em;
+
+				&:last-child {
+					margin-bottom: 1.5em;
+				}
+			}
+		}
+	}
+	.stopwatch-info {
+		
+		padding: 4em 0.25em;
+		
+	
+		&__instruction {
+			
+			&-item {
+				font-size: 1.6rem;
+				padding-bottom: 1.5em;
+				margin-left: 1em;
+			}
+		}
+	
+		&__span {
+			color: $main;
+		}
+	
+		&__btn {
+			margin-top: 1.5em;
+			padding: 0.75em 1.5em;
+			font-size: 1.8em;
+			
+			
+			
+		}
+	}
+}
+
+@media (min-width: 996px) {
+	.stopwatch {
+		margin: 2em;
+		padding: 1em;
+
+		&__main-buttons {
+			margin: 0.2em;
+		}
+
+		&__main-btn {
+			font-size: 1.8rem;
+		}
+
+		&__heading {
+			padding-top: 3em;
+			font-size: 2.8rem;
+		}
+
+		&__timer {
+			padding: 1em 0;
+			font-size: 3.2rem;
+		}
+
+		&__lap {
+			font-size: 2.4rem;
+		}
+
+		&__buttons {
+			justify-content: space-around;
+			padding: 4.5em 0;
+		}
+
+		&__btn {
+			padding: 1.5em 3em;
+			font-size: 2.1rem;
+
+			&:last-child {
+				margin: 2em 18em;
+			}
+		}
+
+		&__times {
+			&-item {
+				font-size: 2rem;
+				margin: 0 0 0.4em;
+
+				&:last-child {
+					margin-bottom: 1em;
+				}
+			}
+		}
+	}
+	.stopwatch-info {
+		
+		padding: 5em 0.5em;
+		
+	
+		&__instruction {
+			
+			&-item {
+				font-size: 1.8rem;
+				padding-bottom: 1.5em;
+				margin-left: 1em;
+			}
+		}
+	
+		&__span {
+			color: $main;
+		}
+	
+		&__btn {
+			margin-top: 2em;
+		
+			
+			
+			
+		}
+	}
+}

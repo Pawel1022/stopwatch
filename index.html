@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/main.css" />
+		<title>Document</title>
+		<script
+			src="https://kit.fontawesome.com/a693169f99.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="stopwatch">
+				<div class="stopwatch__main-buttons">
+					<button class="stopwatch__main-btn stopwatch__main-btn--paint">
+						<i class="fa-solid fa-paintbrush"></i>
+					</button>
+					<button class="stopwatch__main-btn stopwatch__main-btn--info">
+						<i class="fa-solid fa-question"></i>
+					</button>
+				</div>
+				<h1 class="stopwatch__heading">stopwatch</h1>
+				<h2 class="stopwatch__timer">00:00:00</h2>
+
+				<p class="stopwatch__lap">00:00:00</p>
+
+				<div class="stopwatch__buttons">
+					<button class="stopwatch__btn stopwatch__btn--start">
+						<i class="fa-solid fa-play"></i>
+					</button>
+					<button class="stopwatch__btn stopwatch__btn--pause">
+						<i class="fa-solid fa-pause"></i>
+					</button>
+					<button class="stopwatch__btn stopwatch__btn--stop">
+						<i class="fa-solid fa-stop"></i>
+					</button>
+					<button class="stopwatch__btn stopwatch__btn--cancel">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+					<button class="stopwatch__btn stopwatch__btn--history">
+						history
+					</button>
+				</div>
+
+				<ul class="stopwatch__times"></ul>
+			</div>
+		</div>
+		<div class="shadow">
+			<div class="stopwatch-info">
+				<ul class="stopwatch-info__instruction">
+					<li class="stopwatch-info__instruction-item">
+						<span class="stopwatch-info__span"
+							><i class="fa-solid fa-play"></i
+						></span>
+						-- Start.
+					</li>
+					<li class="stopwatch-info__instruction-item">
+						<span class="stopwatch-info__span"
+							><i class="fa-solid fa-pause"></i
+						></span>
+						-- Pause.
+					</li>
+					<li class="stopwatch-info__instruction-item">
+						<span class="stopwatch-info__span"
+							><i class="fa-solid fa-stop"></i
+						></span>
+						-- Stop.
+					</li>
+					<li class="stopwatch-info__instruction-item">
+						<span class="stopwatch-info__span"
+							><i class="fa-solid fa-xmark"></i
+						></span>
+						-- Deletes all results and resets the application.
+					</li>
+					<li class="stopwatch-info__instruction-item">
+						<span class="stopwatch-info__span">HISTORY</span> -- shows the saved
+						results the application.
+					</li>
+				</ul>
+
+				<button class="stopwatch-info__btn">Cancel</button>
+			</div>
+		</div>
+
+		<script src="./js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,345 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #333;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.stopwatch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1em;
+  padding: 0.25em;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#353434), to(black));
+  background-image: linear-gradient(#353434 0%, black 100%);
+  border: 1px solid #f58a10;
+  border-radius: 1em;
+}
+
+.stopwatch__main-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.2em;
+  width: 100%;
+}
+
+.stopwatch__main-btn {
+  padding: 0.75em 1.5em;
+  min-width: 55px;
+  font-size: 1.4rem;
+  border: none;
+  background: none;
+  color: #f5efef;
+  cursor: pointer;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.stopwatch__main-btn:nth-child(1) {
+  margin-right: 0.25em;
+}
+
+.stopwatch__main-btn:hover {
+  color: #f58a10;
+}
+
+.stopwatch__heading {
+  padding-top: 2.4em;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: #f5efef;
+}
+
+.stopwatch__timer {
+  padding: 1.4em 0;
+  font-size: 2.8rem;
+  color: #f58a10;
+}
+
+.stopwatch__lap {
+  font-size: 1.8rem;
+  color: #f5efef;
+}
+
+.stopwatch__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 2.5em 0;
+}
+
+.stopwatch__btn {
+  padding: 1em 2em;
+  color: #f5efef;
+  background: none;
+  border: none;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.stopwatch__btn:last-child {
+  width: 100%;
+  margin: 1em 1.5em;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border: 1px solid #f5efef;
+  border-radius: 1em;
+}
+
+.stopwatch__btn:hover {
+  color: #f58a10;
+}
+
+.stopwatch__times {
+  list-style: none;
+}
+
+.stopwatch__times-item {
+  color: #f5efef;
+  font-size: 1.6rem;
+  margin: 0 0 0.25em;
+}
+
+.stopwatch__times-item:last-child {
+  margin-bottom: 1em;
+}
+
+.shadow {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.shadow--is-active {
+  display: block;
+}
+
+.stopwatch-info {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 50%;
+  left: 50%;
+  padding: 2em 0.25em;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 0.5em;
+}
+
+.stopwatch-info__instruction {
+  list-style: none;
+}
+
+.stopwatch-info__instruction-item {
+  font-size: 1.4rem;
+  padding-bottom: 1em;
+  margin-left: 1em;
+}
+
+.stopwatch-info__span {
+  color: #f58a10;
+}
+
+.stopwatch-info__btn {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  font-size: 1.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid #f58a10;
+  border-radius: 0.5em;
+  -webkit-transform: color .3s background-color .3s;
+          transform: color .3s background-color .3s;
+}
+
+.stopwatch-info__btn:hover {
+  color: #f5efef;
+  background-color: #f58a10;
+}
+
+@media (min-width: 556px) {
+  .stopwatch {
+    margin: 5em;
+  }
+}
+
+@media (min-width: 768px) {
+  .stopwatch {
+    padding: 0.25em;
+  }
+  .stopwatch__main-buttons {
+    margin: 0.25em;
+  }
+  .stopwatch__main-btn {
+    padding: 1em 2em;
+    font-size: 1.6rem;
+  }
+  .stopwatch__main-btn:nth-child(1) {
+    margin-right: 0.1em;
+  }
+  .stopwatch__heading {
+    padding-top: 2.8em;
+    font-size: 2.6rem;
+  }
+  .stopwatch__timer {
+    padding: 2em 0;
+    font-size: 3.2rem;
+  }
+  .stopwatch__lap {
+    font-size: 2.2rem;
+  }
+  .stopwatch__buttons {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 5.5em 0;
+  }
+  .stopwatch__btn {
+    padding: 1.25em 2.25em;
+    font-size: 2rem;
+  }
+  .stopwatch__btn:last-child {
+    margin: 2em 6em;
+  }
+  .stopwatch__times-item {
+    font-size: 1.8rem;
+    margin: 0 0 0.2em;
+  }
+  .stopwatch__times-item:last-child {
+    margin-bottom: 1.5em;
+  }
+  .stopwatch-info {
+    padding: 4em 0.25em;
+  }
+  .stopwatch-info__instruction-item {
+    font-size: 1.6rem;
+    padding-bottom: 1.5em;
+    margin-left: 1em;
+  }
+  .stopwatch-info__span {
+    color: #f58a10;
+  }
+  .stopwatch-info__btn {
+    margin-top: 1.5em;
+    padding: 0.75em 1.5em;
+    font-size: 1.8em;
+  }
+}
+
+@media (min-width: 996px) {
+  .stopwatch {
+    margin: 2em;
+    padding: 1em;
+  }
+  .stopwatch__main-buttons {
+    margin: 0.2em;
+  }
+  .stopwatch__main-btn {
+    font-size: 1.8rem;
+  }
+  .stopwatch__heading {
+    padding-top: 3em;
+    font-size: 2.8rem;
+  }
+  .stopwatch__timer {
+    padding: 1em 0;
+    font-size: 3.2rem;
+  }
+  .stopwatch__lap {
+    font-size: 2.4rem;
+  }
+  .stopwatch__buttons {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 4.5em 0;
+  }
+  .stopwatch__btn {
+    padding: 1.5em 3em;
+    font-size: 2.1rem;
+  }
+  .stopwatch__btn:last-child {
+    margin: 2em 18em;
+  }
+  .stopwatch__times-item {
+    font-size: 2rem;
+    margin: 0 0 0.4em;
+  }
+  .stopwatch__times-item:last-child {
+    margin-bottom: 1em;
+  }
+  .stopwatch-info {
+    padding: 5em 0.5em;
+  }
+  .stopwatch-info__instruction-item {
+    font-size: 1.8rem;
+    padding-bottom: 1.5em;
+    margin-left: 1em;
+  }
+  .stopwatch-info__span {
+    color: #f58a10;
+  }
+  .stopwatch-info__btn {
+    margin-top: 2em;
+  }
+}
+/*# sourceMappingURL=main.css.map */
