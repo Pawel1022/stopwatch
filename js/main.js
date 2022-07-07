@@ -29,13 +29,13 @@ const startCount = () => {
 	}, 1000);
 };
 
-const info = () => {
+const toggleInfo = () => {
 	pageShadow.classList.toggle('shadow--is-active')
 }
 
 const pauseCount = () => {};
 
 startBtn.addEventListener('click', startCount);
-infoBtn.addEventListener('click',info)
-stopwatchInfoBtn.addEventListener('click',info)
+infoBtn.addEventListener('click',toggleInfo)
+stopwatchInfoBtn.addEventListener('click',toggleInfo)
 
