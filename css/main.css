@@ -189,7 +189,7 @@ body {
   background-image: linear-gradient(#353434 0%, black 100%);
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  border: 1px solid #f5efef;
+  border: 1px solid #f58a10;
   border-radius: 0.5em;
 }
 
