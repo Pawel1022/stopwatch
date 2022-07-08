@@ -1,3 +1,5 @@
+@import './colors';
+
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -13,9 +15,6 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	background-color: #333;
 }
-
-$main: rgb(245, 138, 16);
-$secondary: rgb(245, 239, 239);
 
 .wrapper {
 	position: relative;
@@ -104,10 +103,19 @@ $secondary: rgb(245, 239, 239);
 			text-transform: uppercase;
 			border: 1px solid $secondary;
 			border-radius: 1em;
+			transform: background-color .3s color .3s;
+
+
+			&:hover {
+				background-color: $main;
+				color: $secondary
+	
+			}
 		}
 
 		&:hover {
 			color: $main;
+
 		}
 	}
 
@@ -135,27 +143,33 @@ $secondary: rgb(245, 239, 239);
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.65);
 
-	&--is-active{
+	&--is-active {
 		display: block;
 	}
 }
 
 .stopwatch-info {
 	position: absolute;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	top: 50%;
 	left: 50%;
 	padding: 2em 0.25em;
+	background-image: linear-gradient(#353434 0%, black 100%);
 	transform: translate(-50%, -50%);
-	background-color: rgb(255, 255, 255);
+	border: 1px solid $secondary;
 	border-radius: 0.5em;
+
+	&--is-active {
+		display: flex;
+	}
 
 	&__instruction {
 		list-style: none;
 		&-item {
+			color: $secondary;
 			font-size: 1.4rem;
 			padding-bottom: 1em;
 			margin-left: 1em;
@@ -172,14 +186,70 @@ $secondary: rgb(245, 239, 239);
 		font-size: 1.6em;
 		font-weight: bold;
 		text-transform: uppercase;
+		color: $secondary;
 		background-color: transparent;
 		border: 1px solid $main;
 		border-radius: 0.5em;
-		transform: color .3s background-color .3s;
+		transform: background-color 0.3s;
 
-		&:hover{
-			color: $secondary;
+		&:hover {
 			background-color: $main;
+		}
+	}
+}
+
+.color-changer {
+	display: none;
+	position: absolute;
+	padding: 1em 0;
+	top: 50%;
+	left: 50%;
+	width: 50vw;
+	border: 1px solid $main;
+	border-radius: 0.5em;
+	transform: translate(-50%, -50%);
+	background-image: linear-gradient(#353434 0%, black 100%);
+
+	&--is-active {
+		display: block;
+	}
+
+	&__colors {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__color {
+		margin: 1em 0;
+		padding: 2.5em;
+		border: 1px solid $secondary;
+		border-radius: 50%;
+		cursor: pointer;
+
+		&--orange {
+			background-color: $main;
+		}
+
+		&--red {
+			background-color: $red;
+		}
+
+		&--green {
+			background-color: $green;
+		}
+
+		&--blue {
+			background-color: $blue;
+		}
+
+		&--yellow {
+			background-color: $yellow;
+		}
+
+		&--purple {
+			background-color: $purple;
 		}
 	}
 }
@@ -246,30 +316,38 @@ $secondary: rgb(245, 239, 239);
 		}
 	}
 	.stopwatch-info {
-		
 		padding: 4.5em 0.25em;
-		
-	
+
 		&__instruction {
-			
 			&-item {
 				font-size: 1.6rem;
 				padding-bottom: 1.5em;
 				margin-left: 1em;
 			}
 		}
-	
+
 		&__span {
 			color: $main;
 		}
-	
+
 		&__btn {
 			margin-top: 1.5em;
 			padding: 0.75em 1.5em;
 			font-size: 1.8em;
-			
-			
-			
+		}
+	}
+	.color-changer {
+		padding: 2em 0;
+		width: 60vh;
+
+		&__colors {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		&__color {
+			margin: 0 0.5em;
+			padding: 3em;
 		}
 	}
 }
@@ -327,29 +405,32 @@ $secondary: rgb(245, 239, 239);
 		}
 	}
 	.stopwatch-info {
-		
 		padding: 5em 0.5em;
-		
-	
+
 		&__instruction {
-			
 			&-item {
 				font-size: 1.8rem;
 				padding-bottom: 1.5em;
 				margin-left: 1em;
 			}
 		}
-	
+
 		&__span {
 			color: $main;
 		}
-	
+
 		&__btn {
 			margin-top: 2em;
-		
-			
-			
-			
+		}
+	}
+
+	.color-changer {
+		padding: 2em 1em;
+		width: 70vh;
+
+		&__color {
+			margin: 0 2em;
+			padding: 3.5em;
 		}
 	}
 }

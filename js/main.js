@@ -8,6 +8,9 @@ const cancelBtn = document.querySelector('.stopwatch__btn--cancel');
 const historyBtn = document.querySelector('.stopwatch__btn--history');
 const pageShadow = document.querySelector('.shadow')
 const stopwatchInfoBtn = document.querySelector('.stopwatch-info__btn')
+const stopwatchInfo = document.querySelector('.stopwatch-info')
+const colorChanger = document.querySelector('.color-changer')
+const colors = document.querySelectorAll('.color-changer__color')
 
 const startCount = () => {
 	let seconds = 0;
@@ -31,11 +34,18 @@ const startCount = () => {
 
 const toggleInfo = () => {
 	pageShadow.classList.toggle('shadow--is-active')
+	stopwatchInfo.classList.toggle('stopwatch-info--is-active')
 }
 
-const pauseCount = () => {};
+const toggleColors = () => {
+	pageShadow.classList.toggle('shadow--is-active')
+	colorChanger.classList.toggle('color-changer--is-active')
+}
+
 
 startBtn.addEventListener('click', startCount);
 infoBtn.addEventListener('click',toggleInfo)
 stopwatchInfoBtn.addEventListener('click',toggleInfo)
+colorChangeBtn.addEventListener('click',toggleColors)
+colors.forEach(object => object.addEventListener('click',toggleColors))
 

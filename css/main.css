@@ -128,6 +128,13 @@ body {
   text-transform: uppercase;
   border: 1px solid #f5efef;
   border-radius: 1em;
+  -webkit-transform: background-color .3s color .3s;
+          transform: background-color .3s color .3s;
+}
+
+.stopwatch__btn:last-child:hover {
+  background-color: #f58a10;
+  color: #f5efef;
 }
 
 .stopwatch__btn:hover {
@@ -164,9 +171,7 @@ body {
 
 .stopwatch-info {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -180,10 +185,18 @@ body {
   top: 50%;
   left: 50%;
   padding: 2em 0.25em;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#353434), to(black));
+  background-image: linear-gradient(#353434 0%, black 100%);
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background-color: white;
+  border: 1px solid #f5efef;
   border-radius: 0.5em;
+}
+
+.stopwatch-info--is-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .stopwatch-info__instruction {
@@ -191,6 +204,7 @@ body {
 }
 
 .stopwatch-info__instruction-item {
+  color: #f5efef;
   font-size: 1.4rem;
   padding-bottom: 1em;
   margin-left: 1em;
@@ -206,16 +220,83 @@ body {
   font-size: 1.6em;
   font-weight: bold;
   text-transform: uppercase;
+  color: #f5efef;
   background-color: transparent;
   border: 1px solid #f58a10;
   border-radius: 0.5em;
-  -webkit-transform: color .3s background-color .3s;
-          transform: color .3s background-color .3s;
+  -webkit-transform: background-color 0.3s;
+          transform: background-color 0.3s;
 }
 
 .stopwatch-info__btn:hover {
-  color: #f5efef;
   background-color: #f58a10;
+}
+
+.color-changer {
+  display: none;
+  position: absolute;
+  padding: 1em 0;
+  top: 50%;
+  left: 50%;
+  width: 50vw;
+  border: 1px solid #f58a10;
+  border-radius: 0.5em;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#353434), to(black));
+  background-image: linear-gradient(#353434 0%, black 100%);
+}
+
+.color-changer--is-active {
+  display: block;
+}
+
+.color-changer__colors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.color-changer__color {
+  margin: 1em 0;
+  padding: 2.5em;
+  border: 1px solid #f5efef;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-changer__color--orange {
+  background-color: #f58a10;
+}
+
+.color-changer__color--red {
+  background-color: #b42222;
+}
+
+.color-changer__color--green {
+  background-color: #22e222;
+}
+
+.color-changer__color--blue {
+  background-color: #1a41b6;
+}
+
+.color-changer__color--yellow {
+  background-color: #f3f357;
+}
+
+.color-changer__color--purple {
+  background-color: #9b129b;
 }
 
 @media (min-width: 556px) {
@@ -284,6 +365,23 @@ body {
     padding: 0.75em 1.5em;
     font-size: 1.8em;
   }
+  .color-changer {
+    padding: 2em 0;
+    width: 60vh;
+  }
+  .color-changer__colors {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .color-changer__color {
+    margin: 0 0.5em;
+    padding: 3em;
+  }
 }
 
 @media (min-width: 996px) {
@@ -340,6 +438,14 @@ body {
   }
   .stopwatch-info__btn {
     margin-top: 2em;
+  }
+  .color-changer {
+    padding: 2em 1em;
+    width: 70vh;
+  }
+  .color-changer__color {
+    margin: 0 2em;
+    padding: 3.5em;
   }
 }
 /*# sourceMappingURL=main.css.map */
